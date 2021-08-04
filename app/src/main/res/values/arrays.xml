@@ -1,0 +1,15 @@
+<resources>
+    <string-array name="update_periods_name">
+        <item>Never Expire</item>
+        <item>1 Hour</item>
+        <item>Half a Day</item>
+        <item>One Day</item>
+    </string-array>
+
+    <string-array name="update_periods_value">
+        <item>0</item>
+        <item>1</item>
+        <item>12</item>
+        <item>24</item>
+    </string-array>
+</resources>
