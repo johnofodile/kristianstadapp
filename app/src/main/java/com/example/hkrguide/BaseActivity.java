@@ -17,6 +17,7 @@ import com.example.hkrguide.MapActivity.MapActivity;
 import com.example.hkrguide.SettingsActivity.SettingsActivity;
 import com.example.hkrguide.SettingsActivity.util.DataStore;
 import com.example.hkrguide.ToolsActivity.ToolsActivity;
+import com.example.hkrguide.chatactivity.Registration;
 import com.google.android.material.navigation.NavigationView;
 
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -27,6 +28,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
+
 
         DataStore dataStore = new DataStore(this);
         Utilities.setNightMode(getResources().getConfiguration(), dataStore.getBoolean("night_mode", false));
@@ -66,8 +68,9 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, InfoActivity.class);
             } else if(id == R.id.nav_item_tools) {
                 intent = new Intent(this, ToolsActivity.class);
-            } else if(id == R.id.nav_item_settings) {
-                intent = new Intent(this, SettingsActivity.class);
+
+            } else if(id == R.id.nav_item_login) {
+                intent = new Intent(this, Registration.class);
             } else {
                 return false;
             }

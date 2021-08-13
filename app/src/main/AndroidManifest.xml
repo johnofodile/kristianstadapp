@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hkrguide">
 
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -12,7 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.HKRGuide"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".chatactivity.Registration"
+            android:exported="true" />
 
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_api_key" />
@@ -26,20 +36,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".InfoActivity.InfoActivity"
             android:launchMode="singleTop" />
-
         <activity
             android:name=".ToolsActivity.ToolsActivity"
             android:launchMode="singleTop" />
-
         <activity
             android:name=".SettingsActivity.SettingsActivity"
             android:launchMode="singleTop" />
-
         <activity android:name=".BaseActivity" />
+        <activity android:name=".chatactivity.LoginActivity"/>
     </application>
 
 </manifest>

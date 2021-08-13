@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="google_api_key">AIzaSyC3gj6kppuAD-zodWp8JCyW8M6Kq9wRBYY</string>
+    <string name="g_api_key">AIzaSyC3gj6kppuAD-zodWp8JCyW8M6Kq9wRBYY</string>
     <string name="facebook_api_key">211421087431508</string>
 </resources>
