@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/drawable/round_edittext_register.xml" value="0.24270833333333333" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/drawable/rounded_photo.xml" value="0.275" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_base.xml" value="0.1" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_login.xml" value="0.27734375" />
-        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_registration.xml" value="0.27734375" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_registration.xml" value="0.1" />
       </map>
     </option>
   </component>
@@ -20,7 +21,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.27734375" />
+        <option name="scale" value="0.1" />
       </ProjectState>
     </option>
   </component>

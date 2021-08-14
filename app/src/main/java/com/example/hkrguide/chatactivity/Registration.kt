@@ -1,13 +1,19 @@
 package com.example.hkrguide.chatactivity
 
+import android.app.Activity
 import android.content.Intent
+import android.graphics.drawable.BitmapDrawable
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.widget.Toast
 import com.example.hkrguide.BaseActivity
 import com.example.hkrguide.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_registration.*
+import java.util.*
 
 class Registration : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,7 +33,25 @@ class Registration : BaseActivity() {
                 val intent= Intent(this,LoginActivity::class.java)
                 startActivity(intent)
             }
+        photoButton.setOnClickListener {
+            Log.d("Registration","Try to show photo selection")
+            val intent=Intent(Intent.ACTION_PICK)
+            intent.type="image/*"
+            startActivityForResult(intent,0)
         }
+        }
+    var SelectedPhotoUri: Uri?=null
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            Log.d("Registration", "photo was selected")
+            val uri=data.data
+            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver,uri)
+            val bitmapDrawable= BitmapDrawable(bitmap)
+            photoButton.setBackgroundDrawable(bitmapDrawable)
+        }
+    }
     private fun performRegister(){
         val email = emailL.text.toString()
         val password = passwordL.text.toString()
@@ -46,6 +70,8 @@ class Registration : BaseActivity() {
             // else if succesful
             Log.d("Registration",
                 "succesfully created user with uid: ${it.result?.user?.uid}")
+            uploadImageToFirebaseStorage()
+
         }
             .addOnFailureListener{
                 Log.d("Registration","failed to create user: ${it.message}")
@@ -54,6 +80,14 @@ class Registration : BaseActivity() {
                     Toast.LENGTH_SHORT).show()
             }
 
+    }
+    private fun uploadImageToFirebaseStorage(){
+        val filename=UUID.randomUUID().toString()
+    val ref=    FirebaseStorage.getInstance().getReference("/images/$filename")
+  ref.putFile(SelectedPhotoUri!!)
+      .addOnSuccessListener {
+          Log.d("RegisterActivity","Successfully uploaded image:${it.metadata?.path}")
+      }
     }
 
     }
