@@ -17,6 +17,7 @@ import com.example.hkrguide.MapActivity.MapActivity;
 import com.example.hkrguide.SettingsActivity.SettingsActivity;
 import com.example.hkrguide.SettingsActivity.util.DataStore;
 import com.example.hkrguide.ToolsActivity.ToolsActivity;
+import com.example.hkrguide.chatactivity.LatestMessagesActivity;
 import com.example.hkrguide.chatactivity.Registration;
 import com.google.android.material.navigation.NavigationView;
 
@@ -70,7 +71,7 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 intent = new Intent(this, ToolsActivity.class);
 
             } else if(id == R.id.nav_item_login) {
-                intent = new Intent(this, Registration.class);
+                intent = new Intent(this, LatestMessagesActivity.class);
             } else {
                 return false;
             }

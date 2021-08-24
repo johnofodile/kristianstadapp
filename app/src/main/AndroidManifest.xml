@@ -3,8 +3,6 @@
     package="com.example.hkrguide">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -16,18 +14,6 @@
         android:theme="@style/Theme.HKRGuide"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".chatactivity.Registration"
-            android:exported="true" />
-
-
-        <meta-data
-            android:name="com.google.android.wearable.standalone"
-            android:value="true" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_api_key" />
-
-        <activity
             android:name=".MapActivity.MapActivity"
             android:launchMode="singleTop">
             <intent-filter>
@@ -36,6 +22,32 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".chatactivity.NewMessageActivity"
+            android:exported="true">
+
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".chatactivity.LatestMessagesActivity" />
+
+
+        </activity>
+        <activity
+            android:name=".chatactivity.LatestMessagesActivity"
+            android:exported="true" />
+        <activity
+            android:name=".chatactivity.Registration"
+            android:exported="true" />
+
+        <meta-data
+            android:name="com.google.android.wearable.standalone"
+            android:value="true" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/g_api_key" />
+
+
         <activity
             android:name=".InfoActivity.InfoActivity"
             android:launchMode="singleTop" />
@@ -46,7 +58,9 @@
             android:name=".SettingsActivity.SettingsActivity"
             android:launchMode="singleTop" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".chatactivity.LoginActivity"/>
+        <activity android:name=".chatactivity.LoginActivity" />
+
+
     </application>
 
 </manifest>

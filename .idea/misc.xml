@@ -7,8 +7,13 @@
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/drawable/rounded_photo.xml" value="0.275" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_base.xml" value="0.1" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_latest_messages.xml" value="0.1" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_login.xml" value="0.27734375" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_new_message.xml" value="0.1" />
         <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/activity_registration.xml" value="0.1" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/recyclerview_row_info.xml" value="0.1" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/layout/user_row_new_message.xml" value="0.2" />
+        <entry key="..\:/Users/john ofodile/AndroidStudioProjects/kristianstadapp/HKRGuide_Facebook_Settings/app/src/main/res/menu/navchat_menu.xml" value="0.1" />
       </map>
     </option>
   </component>

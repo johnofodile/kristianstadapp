@@ -2,7 +2,6 @@ package com.example.hkrguide.chatactivity
 
 import android.app.Activity
 import android.content.Intent
-import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -11,6 +10,7 @@ import android.widget.Toast
 import com.example.hkrguide.BaseActivity
 import com.example.hkrguide.R
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_registration.*
 import java.util.*
@@ -20,10 +20,7 @@ class Registration : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
 
-        val email= emailL.text.toString()
-        val password=passwordL.text.toString()
-        Log.d("Registration","Email is:" + email)
-        Log.d("Registration","Password: $password")
+
         loginButtonL.setOnClickListener {
            performRegister()
         }
@@ -40,16 +37,19 @@ class Registration : BaseActivity() {
             startActivityForResult(intent,0)
         }
         }
-    var SelectedPhotoUri: Uri?=null
+    var selectedPhotoUri: Uri?=null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
             Log.d("Registration", "photo was selected")
-            val uri=data.data
-            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver,uri)
-            val bitmapDrawable= BitmapDrawable(bitmap)
-            photoButton.setBackgroundDrawable(bitmapDrawable)
+             selectedPhotoUri =data.data
+            val bitmap= MediaStore.Images.Media.getBitmap(contentResolver,selectedPhotoUri)
+            hdRound.setImageBitmap(bitmap)
+            photoButton.alpha=0f
+          //  val bitmapDrawable= BitmapDrawable(bitmap)
+          //  photoButton.setBackgroundDrawable(bitmapDrawable)
+
         }
     }
     private fun performRegister(){
@@ -61,8 +61,8 @@ class Registration : BaseActivity() {
             return
         }
 
-        Log.d("Registration", "Email is:" + email)
-        Log.d("Registration", "Password: $password")
+        Log.d("Registration", "performRegisterEmail is:" + email)
+        Log.d("Registration", "performregisterPassword: $password")
         FirebaseAuth.getInstance().
         createUserWithEmailAndPassword(email,password).
         addOnCompleteListener(){
@@ -82,12 +82,42 @@ class Registration : BaseActivity() {
 
     }
     private fun uploadImageToFirebaseStorage(){
+        if(selectedPhotoUri==null)return
         val filename=UUID.randomUUID().toString()
     val ref=    FirebaseStorage.getInstance().getReference("/images/$filename")
-  ref.putFile(SelectedPhotoUri!!)
-      .addOnSuccessListener {
-          Log.d("RegisterActivity","Successfully uploaded image:${it.metadata?.path}")
+  ref.putFile(selectedPhotoUri!!)
+      .addOnSuccessListener { it ->
+          Log.d("Registration","Successfully uploaded image:${it.metadata?.path}")
+          ref.downloadUrl.addOnSuccessListener {
+
+              Log.d("Registration","File Location: $ it")
+              saveUserToFirebaseDatabase(it.toString())
+          }
       }
+      .addOnFailureListener{
+        Log.d("Registration","Failed to upload image to storage:  ${it.message}")
+      }
+    }
+    private fun saveUserToFirebaseDatabase(profileImageUrl: String){
+       val uid=  FirebaseAuth.getInstance().uid?:""
+       val ref= FirebaseDatabase.getInstance().getReference("/users/$uid")
+        val user=User(uid,UsernameL.text.toString(),profileImageUrl)
+        ref.setValue(user)
+            .addOnSuccessListener{
+                Log.d("Registration","finally we saved the user to firebase database")
+                val intent=Intent(this,LatestMessagesActivity::class.java)
+                intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
+            }
+            .addOnFailureListener{
+                Log.d("Registration","Failed to set value to database: ${it.message}")
+            }
     }
 
     }
+class User(val uid:String,val username:String,val profileImageUrl:String) {
+    constructor() : this("","","")
+}
+
+
+
