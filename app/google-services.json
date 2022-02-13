@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "32312221018",
+    "firebase_url": "https://hkrguide-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "hkrguide",
+    "storage_bucket": "hkrguide.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32312221018:android:5522e8746db248be41e763",
+        "android_client_info": {
+          "package_name": "com.example.finalhusky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32312221018-f484lhbnju5fjc7biuoekauc3om30msj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIoCH5HFt-U6rdkW0UqoafjayUgqkWy7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32312221018-f484lhbnju5fjc7biuoekauc3om30msj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32312221018:android:74238b166c81e25141e763",
+        "android_client_info": {
+          "package_name": "com.example.hkrguide"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32312221018-f484lhbnju5fjc7biuoekauc3om30msj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIoCH5HFt-U6rdkW0UqoafjayUgqkWy7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "32312221018-f484lhbnju5fjc7biuoekauc3om30msj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
